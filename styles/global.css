@@ -1,0 +1,13 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'uniwind';
+
+/* Configure content sources for Tailwind CSS */
+@source "../app/**/*.{js,jsx,ts,tsx}";
+@source "../components/**/*.{js,jsx,ts,tsx}";
+
+@theme {
+  --color-white: #ffffff;
+  --color-black: #000000;
+}
+

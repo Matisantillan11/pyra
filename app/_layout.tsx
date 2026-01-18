@@ -1,6 +1,7 @@
 import { DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
+import '../styles/global.css';
 
 import * as SplashScreen from "expo-splash-screen";
 
