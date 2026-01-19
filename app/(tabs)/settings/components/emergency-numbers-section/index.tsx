@@ -1,12 +1,13 @@
 import { View } from "react-native";
 import { AsteriskIcon } from "~/components/icons";
 import { ThemedText } from "~/components/ui";
-import { EmergencyButton } from "..";
 import { EMERGENCY_BUTTON_DATA } from "./emergency-button/constants";
+
+import EmergencyButton from "./emergency-button";
 
 export default function EmergencyCallsSection() {
   return (
-    <View>
+    <View className="px-2">
       <View className="flex-row items-center gap-2 my-2">
         <AsteriskIcon color='red' strokeWidth={3} size={20} />
         <ThemedText className="text-sm font-bold uppercase">Números de emergencia</ThemedText>

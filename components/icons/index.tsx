@@ -1,5 +1,6 @@
 export { default as AlertIcon } from './alert';
 export { default as AmbulanceIcon } from './ambulance';
+export { default as ArrowRightIcon } from './arrow-right';
 export { default as AsteriskIcon } from './asterisk';
 export { default as CameraIcon } from './camera';
 export { default as CheckMarkSuccessIcon } from './check-mark-success';
