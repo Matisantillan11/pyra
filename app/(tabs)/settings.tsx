@@ -1,17 +1,15 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { ScrollView } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { EmergencyNumbersSection } from './settings/components';
 
 export default function Settings() {
   return (
-    <View style={styles.container}>
-      <Text>Tab [Settings]</Text>
-    </View>
+    <SafeAreaView edges={['top']} className='flex-1'>
+      <ScrollView className="p-8">
+        <EmergencyNumbersSection />
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
+

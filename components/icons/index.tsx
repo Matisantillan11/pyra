@@ -1,5 +1,6 @@
 export { default as AlertIcon } from './alert';
 export { default as AmbulanceIcon } from './ambulance';
+export { default as AsteriskIcon } from './asterisk';
 export { default as CameraIcon } from './camera';
 export { default as CheckMarkSuccessIcon } from './check-mark-success';
 export { default as EditIcon } from './edit';
@@ -15,6 +16,7 @@ export { default as PhoneIcon } from './phone';
 export { default as PoliceBadgeIcon } from './police-badge';
 export { default as SentIcon } from './sent';
 export { default as SettingsIcon } from './settings';
+export { default as ShieldIcon } from './shield';
 export { default as TrashIcon } from './trash';
 export { default as TruckIcon } from './truck';
 export { default as VolumeOnIcon } from './volume-on';

@@ -1,3 +1,4 @@
 export { default as Button } from './button';
 export { default as Input } from './input';
+export { default as ThemedText } from './themed-text';
 export { default as Toggle } from './toggle';

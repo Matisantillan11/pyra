@@ -9,5 +9,14 @@
 @theme {
   --color-white: #ffffff;
   --color-black: #000000;
+
+  --font-montserrat-regular: 'Montserrat-Regular';
+  --font-montserrat-bold: 'Montserrat-Bold';
+  --font-montserrat-medium: 'Montserrat-Medium';
+  --font-montserrat-semibold: 'Montserrat-SemiBold';
+  --font-montserrat-light: 'Montserrat-Light';
+  --font-montserrat-thin: 'Montserrat-Thin';
+  --font-montserrat-black: 'Montserrat-Black';
+  --font-montserrat-extrabold: 'Montserrat-ExtraBold';
 }
 
