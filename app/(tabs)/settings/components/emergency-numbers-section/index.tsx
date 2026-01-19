@@ -7,7 +7,7 @@ import EmergencyButton from "./emergency-button";
 
 export default function EmergencyCallsSection() {
   return (
-    <View className="px-2">
+    <View className="p-2 shadow-lg rounded-lg">
       <View className="flex-row items-center gap-2 my-2">
         <AsteriskIcon color='red' strokeWidth={3} size={20} />
         <ThemedText className="text-sm font-bold uppercase">Números de emergencia</ThemedText>

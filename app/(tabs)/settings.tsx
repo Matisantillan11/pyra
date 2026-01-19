@@ -1,12 +1,29 @@
+import { useNavigation } from 'expo-router';
 import { ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { EmergencyNumbersSection, Privacy, Security } from './settings/components';
+import { ArrowLeftIcon } from '~/components/icons';
+import { Button, ThemedText } from '~/components/ui';
+import { EmergencyNumbersSection, LocationAndAlerts, Privacy, Security } from './settings/components';
 
 export default function Settings() {
+  const navigation = useNavigation();
+
+  const handleGoBack = () => {
+    navigation.goBack();
+  }
+
   return (
-    <SafeAreaView edges={['top']} className='flex-1'>
+    <SafeAreaView edges={['top', 'bottom']} className='flex-1'>
       <ScrollView className="p-8">
+        <View className='flex-row items-center justify-between gap-2 mb-6'>
+          <Button variant="ghost" className="h-10 w-10 rounded-full shadow-none" onPress={handleGoBack}>
+            <ArrowLeftIcon />
+          </Button>
+          <ThemedText className="text-xl font-bold w-full">Configuración</ThemedText>
+        </View>
+
         <View className="gap-4">
+          <LocationAndAlerts />
           <Privacy />
           <Security />
           <EmergencyNumbersSection />
