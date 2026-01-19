@@ -4,7 +4,7 @@ import { Button, ThemedText } from "~/components/ui";
 
 export default function Security() {
   return (
-    <View className="my-4">
+    <View>
       <View className="flex-row items-center gap-2 my-2">
         <ThemedText className="text-sm font-bold uppercase text-gray-500">Seguridad</ThemedText>
       </View>
