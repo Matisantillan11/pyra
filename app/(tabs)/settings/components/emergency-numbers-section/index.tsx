@@ -2,7 +2,7 @@ import { View } from "react-native";
 import { AsteriskIcon } from "~/components/icons";
 import { ThemedText } from "~/components/ui";
 import { EmergencyButton } from "..";
-import { EMERGENCY_BUTTON_DATA } from "../emergency-button/constants";
+import { EMERGENCY_BUTTON_DATA } from "./emergency-button/constants";
 
 export default function EmergencyCallsSection() {
   return (
