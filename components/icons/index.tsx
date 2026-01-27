@@ -10,6 +10,7 @@ export { default as EditIcon } from './edit';
 export { default as EyeOffIcon } from './eye-off';
 export { default as FireIcon } from './fire';
 export { default as HomeIcon } from './home';
+export { default as InfoIcon } from './info';
 export { default as LocationIcon } from './location';
 export { default as NewspaperIcon } from './newspapper';
 export { default as NotificationIcon } from './notification';
