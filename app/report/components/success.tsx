@@ -27,7 +27,7 @@ export default function ReportSuccess() {
   ];
 
   return (
-    <View className="relative flex-1 items-center justify-center px-6 py-3">
+    <View className="relative flex-1 items-center justify-center px-6 pt-3 pb-25">
       <View className="w-32 h-32 bg-green-500 rounded-full items-center justify-center mb-3">
         <CheckMarkSuccessIcon size={64} color="white" strokeWidth={3} />
       </View>

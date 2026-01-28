@@ -1,7 +1,7 @@
 import { ScrollView, TextInput, TouchableOpacity, View } from 'react-native';
 
 import { CameraIcon } from '~/components/icons';
-import { Button, ThemedText } from '~/components/ui';
+import { ThemedText } from '~/components/ui';
 import { Evidence } from '../../../types';
 
 interface EvidenceStepProps {
@@ -9,8 +9,6 @@ interface EvidenceStepProps {
   notes: string;
   onEvidenceAdd: (evidence: Evidence) => void;
   onNotesChange: (notes: string) => void;
-  onNext: () => void;
-  onBack: () => void;
 }
 
 export function EvidenceStep({
@@ -18,8 +16,7 @@ export function EvidenceStep({
   notes,
   onEvidenceAdd,
   onNotesChange,
-  onNext,
-  onBack
+
 }: EvidenceStepProps) {
   const handleCameraPress = () => {
     // Here you would open camera/gallery
@@ -30,13 +27,9 @@ export function EvidenceStep({
     });
   };
 
-  const handleSkip = () => {
-    onNext();
-  };
-
   return (
-    <View className="relative h-full px-6">
-      <ScrollView className='h-[calc(100% - 500px)] mb-40'>
+    <View className="px-6 pt-6 pb-30">
+      <ScrollView className='h-[calc(100% - 500px)] mb-40' showsVerticalScrollIndicator={false}>
         <View className="flex-1 px-6 py-6">
           <View className="items-center">
             <View className="w-12 h-12 bg-red-600 rounded-full items-center justify-center mb-4">
@@ -113,25 +106,6 @@ export function EvidenceStep({
           </View>
         </View>
       </ScrollView>
-      {/* Action Buttons */}
-      <View className="absolute bottom-24 left-0 right-0 px-6 pb-6 gap-3">
-        <Button
-          onPress={handleSkip}
-          className="w-full rounded-xl h-14 bg-white border-2 border-red-600"
-        >
-          <ThemedText className="text-red-600 text-base font-montserrat-semibold">
-            Saltar
-          </ThemedText>
-        </Button>
-        <Button
-          onPress={onNext}
-          className="w-full rounded-xl h-14 bg-red-600"
-        >
-          <ThemedText className="text-white text-base font-montserrat-semibold">
-            Siguiente
-          </ThemedText>
-        </Button>
-      </View>
     </View>
   );
 }

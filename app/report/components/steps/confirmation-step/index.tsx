@@ -1,15 +1,13 @@
 import { ScrollView, TouchableOpacity, View } from 'react-native';
 import { EditIcon, FireIcon, LocationIcon } from '~/components/icons';
-import { Button, ThemedText } from '~/components/ui';
+import { ThemedText } from '~/components/ui';
 import { ReportData } from '../../../types';
 
 interface ConfirmationStepProps {
   reportData: ReportData;
-  onSubmit: () => void;
-  onBack: () => void;
 }
 
-export function ConfirmationStep({ reportData, onSubmit, onBack }: ConfirmationStepProps) {
+export function ConfirmationStep({ reportData }: ConfirmationStepProps) {
   const getAlertTypeLabel = () => {
     switch (reportData.alertType) {
       case 'fire':
@@ -24,19 +22,18 @@ export function ConfirmationStep({ reportData, onSubmit, onBack }: ConfirmationS
   };
 
   return (
-    <View className="relative h-full px-6">
-      <ScrollView className="flex-1  py-10 px-6">
-        <ThemedText className="text-2xl font-montserrat-bold text-gray-900 mb-2">
-          Resumen del reporte
-        </ThemedText>
-        <ThemedText className="text-sm text-gray-600 font-montserrat-regular mb-6">
-          Verifica la información antes de alertar a los servicios.
-        </ThemedText>
+    <View className="h-full px-6 py-6">
+      <ThemedText className="text-2xl font-montserrat-bold text-gray-900 mb-2">
+        Resumen del reporte
+      </ThemedText>
+      <ThemedText className="text-sm text-gray-600 font-montserrat-regular mb-2">
+        Verifica la información antes de alertar a los servicios.
+      </ThemedText>
 
-        {/* Report Summary Cards */}
-        <View className="gap-4">
+      <ScrollView showsVerticalScrollIndicator={false} className="h-[calc(100%-600px)] mb-40">
+        <View className="gap-2">
           {/* Alert Type */}
-          <View className="bg-white border border-gray-200 rounded-2xl p-4">
+          <View className="bg-white border border-gray-200 rounded-2xl p-4 shadow-lg">
             <View className="flex-row items-center justify-between mb-3">
               <View className="flex-row items-center">
                 <View className="w-10 h-10 bg-red-50 rounded-full items-center justify-center mr-3">
@@ -57,7 +54,7 @@ export function ConfirmationStep({ reportData, onSubmit, onBack }: ConfirmationS
             </View>
           </View>
 
-          <View className="bg-white border border-gray-200 rounded-2xl p-4">
+          <View className="bg-white border border-gray-200 rounded-2xl p-4 shadow-lg">
             <View className="flex-row items-center justify-between mb-3">
               <View className="flex-row items-center flex-1">
                 <View className="w-10 h-10 bg-red-50 rounded-full items-center justify-center mr-3">
@@ -82,7 +79,7 @@ export function ConfirmationStep({ reportData, onSubmit, onBack }: ConfirmationS
           </View>
 
           {reportData.evidence && (
-            <View className="bg-white border border-gray-200 rounded-2xl p-4">
+            <View className="bg-white border border-gray-200 rounded-2xl p-4 shadow-lg">
               <View className="flex-row items-center justify-between mb-3">
                 <ThemedText className="text-xs text-gray-500 font-montserrat-medium uppercase">
                   Evidencia Visual
@@ -116,24 +113,12 @@ export function ConfirmationStep({ reportData, onSubmit, onBack }: ConfirmationS
           )}
         </View>
 
-        <View className="mt-6 mb-6">
+        <View className="mt-3">
           <ThemedText className="text-xs text-gray-500 font-montserrat-regular text-center">
             Al presionar "Enviar", usted confirma bajo declaración jurada que la información es verdadera y corresponde a una emergencia real.
           </ThemedText>
         </View>
       </ScrollView>
-
-      <View className="absolute bottom-24 left-0 right-0 px-6 pb-6">
-        <Button
-          onPress={onSubmit}
-          className="w-full rounded-xl h-14 bg-red-600 flex-row items-center justify-center"
-        >
-          <ThemedText className="text-white text-base font-montserrat-bold mr-2">
-            ENVIAR REPORTE
-          </ThemedText>
-          <ThemedText className="text-white text-lg">▶</ThemedText>
-        </Button>
-      </View>
     </View>
   );
 }

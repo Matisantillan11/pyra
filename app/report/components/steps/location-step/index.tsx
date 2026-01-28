@@ -1,36 +1,30 @@
 import { useState } from 'react';
 import { View } from 'react-native';
-import MapView from 'react-native-maps';
-import { ArrowRightIcon, LocationIcon } from '~/components/icons';
-import { Button, Input, ThemedText } from '~/components/ui';
-import { cn } from '~/utils/tailwind';
+import { LocationIcon } from '~/components/icons';
+import { Input, ThemedText } from '~/components/ui';
+import { Map } from '~/lib/map';
 import { Location } from '../../../types';
 
 interface LocationStepProps {
   location: Location | null;
   onLocationSelect: (location: Location) => void;
-  onNext: () => void;
-  onBack: () => void;
 }
 
-export function LocationStep({ location, onLocationSelect, onNext, onBack }: LocationStepProps) {
+export function LocationStep({ location, onLocationSelect }: LocationStepProps) {
   const [searchQuery, setSearchQuery] = useState(location?.address || '');
 
   const handleLocationConfirm = () => {
-
     onLocationSelect({
       address: searchQuery,
       coordinates: {
-        latitude: -41.1335, // Example coordinates (Bariloche area)
+        latitude: -41.1335,
         longitude: -71.3103,
       },
     });
-    onNext();
-
   };
 
   return (
-    <MapView style={{ position: 'relative', width: '100%', height: '100%' }}>
+    <Map>
       <View className="bg-transparent px-6 py-3 flex-row items-center">
         <Input
           value={searchQuery}
@@ -41,7 +35,7 @@ export function LocationStep({ location, onLocationSelect, onNext, onBack }: Loc
         />
       </View>
 
-      <View className="absolute bottom-24 left-0 right-0 px-6 pb-6 gap-4">
+      <View className="absolute bottom-60 left-0 right-0 px-6 pb-6 gap-4">
         <View className="bg-white rounded-xl p-4 shadow-lg">
           <View className="flex-row items-center">
             <View className="w-10 h-10 bg-red-600 rounded-full items-center justify-center mr-3">
@@ -60,21 +54,8 @@ export function LocationStep({ location, onLocationSelect, onNext, onBack }: Loc
             </View>
           </View>
         </View>
-
-        <Button
-          onPress={handleLocationConfirm}
-          className={cn(
-            'w-full rounded-xl h-14 flex-row items-center justify-center',
-            'bg-red-600'
-          )}
-        >
-          <ThemedText className="text-white text-base font-montserrat-semibold mr-2">
-            Siguiente
-          </ThemedText>
-          <ArrowRightIcon size={20} color="white" strokeWidth={2.5} />
-        </Button>
       </View>
-    </MapView>
+    </Map>
     /*   <View className="relative h-full">
         <View className="px-6 py-4 flex-row items-center">
           <TouchableOpacity onPress={onBack} className="mr-3" activeOpacity={0.7}>

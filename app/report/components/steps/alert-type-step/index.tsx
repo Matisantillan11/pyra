@@ -1,5 +1,5 @@
 import { View } from 'react-native';
-import { ArrowRightIcon, CloudIcon, FireIcon } from '~/components/icons';
+import { CloudIcon, FireIcon } from '~/components/icons';
 import { Button, ThemedText } from '~/components/ui';
 import { cn } from '~/utils/tailwind';
 import { AlertType } from '../../../types';
@@ -7,10 +7,9 @@ import { AlertType } from '../../../types';
 interface AlertTypeStepProps {
   selectedType: AlertType | null;
   onSelect: (type: AlertType) => void;
-  onNext: () => void;
 }
 
-export function AlertTypeStep({ selectedType, onSelect, onNext }: AlertTypeStepProps) {
+export function AlertTypeStep({ selectedType, onSelect }: AlertTypeStepProps) {
   const alertOptions = [
     {
       type: 'fire' as AlertType,
@@ -43,7 +42,7 @@ export function AlertTypeStep({ selectedType, onSelect, onNext }: AlertTypeStepP
   ];
 
   return (
-    <View className="relative h-full px-6">
+    <View className="px-6 h-full">
       <View className="py-4">
         <ThemedText className="text-4xl font-montserrat-bold text-gray-900">
           ¿Qué <ThemedText className="text-red-600 font-bold text-4xl">viste?</ThemedText>
@@ -90,22 +89,6 @@ export function AlertTypeStep({ selectedType, onSelect, onNext }: AlertTypeStepP
             </Button>
           );
         })}
-      </View>
-
-      <View className="absolute bottom-30 left-0 right-0 px-6">
-        <Button
-          onPress={onNext}
-          disabled={!selectedType}
-          className={cn(
-            'w-full rounded-xl h-14 flex-row items-center justify-center',
-            selectedType ? 'bg-red-600' : 'bg-gray-300'
-          )}
-        >
-          <ThemedText className="text-white text-base font-montserrat-semibold mr-2">
-            Siguiente
-          </ThemedText>
-          <ArrowRightIcon size={20} color="white" strokeWidth={2.5} />
-        </Button>
       </View>
     </View>
   );
