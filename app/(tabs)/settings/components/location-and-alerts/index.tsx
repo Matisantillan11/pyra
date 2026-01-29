@@ -4,11 +4,12 @@ import { Button, ThemedText, Toggle } from "~/components/ui";
 
 export default function LocationAndAlerts() {
   return (
-    <View className="shadow-lg dark:shadow-white/10 rounded-lg">
+    <View className="rounded-lg">
       <View className="flex-row items-center gap-2 my-2">
         <ThemedText className="text-sm font-bold uppercase text-gray-500 dark:text-gray-400">Ubicación y alertas</ThemedText>
       </View>
 
+      <View className="shadow-lg dark:shadow-white/10 ">
       <Button variant="ghost" className="py-2 w-full justify-start shadow-none">
         <View className="w-full flex-row items-center justify-between">
           <View className="flex-row items-center gap-2">
@@ -53,6 +54,7 @@ export default function LocationAndAlerts() {
           <Toggle value={true} onPress={() => { }} />
         </View>
       </Button>
+      </View>
     </View>
   )
 }

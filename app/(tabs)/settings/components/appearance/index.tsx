@@ -11,12 +11,12 @@ export default function Appearance() {
   };
 
   return (
-    <View className="shadow-lg dark:shadow-white/10 rounded-lg">
+    <View className="rounded-lg">
       <View className="flex-row items-center gap-2 my-2">
         <ThemedText className="text-sm font-bold uppercase text-gray-500 dark:text-gray-400">Apariencia</ThemedText>
       </View>
 
-      <Button variant="ghost" className="py-2 w-full justify-start shadow-none">
+      <Button variant="ghost" className="py-2 w-full justify-start shadow-lg dark:shadow-white/10 rounded-lg">
         <View className="w-full flex-row items-center justify-between">
           <View className="flex-row items-center gap-2">
             <View className="h-12 w-12 bg-orange-200/60 dark:bg-purple-800/30 flex-row items-center justify-center gap-1 rounded-full">
