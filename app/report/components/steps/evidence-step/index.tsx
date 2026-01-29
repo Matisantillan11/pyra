@@ -35,15 +35,15 @@ export function EvidenceStep({
             <View className="w-12 h-12 bg-red-600 rounded-full items-center justify-center mb-4">
               <CameraIcon size={24} color="white" strokeWidth={2} />
             </View>
-            <ThemedText className="text-xl font-montserrat-bold text-gray-900 text-center">
+            <ThemedText className="text-xl font-montserrat-bold text-gray-900 dark:text-white text-center">
               Evidencia Visual
             </ThemedText>
-            <ThemedText className="text-sm text-gray-500 font-montserrat-medium text-center mt-1">
+            <ThemedText className="text-sm text-gray-500 dark:text-gray-400 font-montserrat-medium text-center mt-1">
               (Opcional)
             </ThemedText>
           </View>
 
-          <ThemedText className="text-base text-gray-600 text-center mt-4 font-montserrat-regular">
+          <ThemedText className="text-base text-gray-600 dark:text-gray-400 text-center mt-4 font-montserrat-regular">
             Sube una foto clara. Ayuda a los equipos de emergencia y el tamaño de la zona de vegetación afectada.
           </ThemedText>
 
@@ -51,24 +51,24 @@ export function EvidenceStep({
           <TouchableOpacity
             onPress={handleCameraPress}
             activeOpacity={0.7}
-            className="mt-8 border-2 border-dashed border-gray-300 rounded-2xl p-8 items-center justify-center"
+            className="mt-8 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-2xl p-8 items-center justify-center"
           >
             {evidence ? (
               <View className="items-center">
-                <ThemedText className="text-green-600 text-2xl mb-2">✓</ThemedText>
-                <ThemedText className="text-sm font-montserrat-semibold text-gray-900">
+                <ThemedText className="text-green-600 dark:text-green-500 text-2xl mb-2">✓</ThemedText>
+                <ThemedText className="text-sm font-montserrat-semibold text-gray-900 dark:text-white">
                   Foto añadida
                 </ThemedText>
               </View>
             ) : (
               <View className="items-center">
-                <View className="w-16 h-16 bg-gray-100 rounded-full items-center justify-center mb-3">
+                  <View className="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-full items-center justify-center mb-3">
                   <CameraIcon size={32} color="#6B7280" strokeWidth={2} />
                 </View>
-                <ThemedText className="text-base font-montserrat-semibold text-gray-700">
+                  <ThemedText className="text-base font-montserrat-semibold text-gray-700 dark:text-gray-300">
                   Tocar para añadir evidencia
                 </ThemedText>
-                <ThemedText className="text-sm text-gray-500 font-montserrat-regular">
+                  <ThemedText className="text-sm text-gray-500 dark:text-gray-400 font-montserrat-regular">
                   (Foto o Galería)
                 </ThemedText>
               </View>
@@ -76,13 +76,13 @@ export function EvidenceStep({
           </TouchableOpacity>
 
           {/* Privacy Notice */}
-          <View className="mt-6 bg-blue-50 p-4 rounded-xl flex-row items-start">
-            <ThemedText className="text-blue-600 mr-2">ℹ️</ThemedText>
+          <View className="mt-6 bg-blue-50 dark:bg-blue-900/30 p-4 rounded-xl flex-row items-start">
+            <ThemedText className="text-blue-600 dark:text-blue-400 mr-2">ℹ️</ThemedText>
             <View className="flex-1">
-              <ThemedText className="text-xs font-montserrat-semibold text-blue-900">
+              <ThemedText className="text-xs font-montserrat-semibold text-blue-900 dark:text-blue-300">
                 Privacidad y Datos
               </ThemedText>
-              <ThemedText className="text-xs text-blue-700 font-montserrat-regular mt-1">
+              <ThemedText className="text-xs text-blue-700 dark:text-blue-400 font-montserrat-regular mt-1">
                 Las imágenes se comprimen automáticamente para ahorrar datos móviles. Solo serán visibles para el personal de emergencia.
               </ThemedText>
             </View>
@@ -90,7 +90,7 @@ export function EvidenceStep({
 
           {/* Notes Input */}
           <View className="mt-6">
-            <ThemedText className="text-sm font-montserrat-semibold text-gray-700 mb-2">
+            <ThemedText className="text-sm font-montserrat-semibold text-gray-700 dark:text-gray-300 mb-2">
               Notas adicionales (Opcional)
             </ThemedText>
             <TextInput
@@ -100,7 +100,7 @@ export function EvidenceStep({
               placeholderTextColor="#9CA3AF"
               multiline
               numberOfLines={4}
-              className="border border-gray-300 rounded-xl p-4 text-gray-900 font-montserrat-regular text-sm"
+              className="border border-gray-300 dark:border-gray-600 rounded-xl p-4 text-gray-900 dark:text-white bg-white dark:bg-dark-bg font-montserrat-regular text-sm"
               style={{ textAlignVertical: 'top' }}
             />
           </View>

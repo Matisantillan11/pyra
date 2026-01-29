@@ -1,4 +1,3 @@
-import { DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
 import '../styles/global.css';
@@ -13,11 +12,33 @@ import {
   Montserrat_800ExtraBold,
   useFonts
 } from '@expo-google-fonts/montserrat';
+import { DarkTheme, DefaultTheme } from '@react-navigation/native';
 import { Stack } from 'expo-router';
 import { useEffect } from 'react';
+import { ThemeProvider, useTheme } from '~/lib/theme';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
+
+function RootLayoutContent() {
+  const { isDark } = useTheme();
+
+  return (
+    <>
+      <Stack screenOptions={{
+        contentStyle: {
+          backgroundColor: isDark
+            ? DarkTheme.colors.background
+            : DefaultTheme.colors.background
+        }
+      }}>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="report" options={{ headerShown: false }} />
+      </Stack>
+      <StatusBar style={isDark ? 'light' : 'dark'} />
+    </>
+  );
+}
 
 export default function RootLayout() {
   const [loaded] = useFonts({
@@ -35,19 +56,12 @@ export default function RootLayout() {
   }, [loaded]);
 
   if (!loaded) {
-    return (
-      null
-    );
+    return null;
   }
 
-
   return (
-    <ThemeProvider value={DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="report" options={{ headerShown: false }} />
-      </Stack>
-      <StatusBar style="auto" />
+    <ThemeProvider>
+      <RootLayoutContent />
     </ThemeProvider>
   );
 }

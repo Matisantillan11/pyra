@@ -105,7 +105,7 @@ function StepperRoot({ children, steps, onComplete, initialStep = 0 }: StepperPr
   // Default layout with scrollable content
   return (
     <StepperContext.Provider value={contextValue}>
-      <SafeAreaView edges={['top', 'bottom']} className="flex-1 bg-transparent">
+      <SafeAreaView edges={['top', 'bottom']} className="flex-1 bg-white dark:bg-dark-bg">
         <ReportStepper steps={steps} currentStep={currentStep} onNavigateToStep={onNavigateToStep} />
 
         {currentChild}
@@ -115,9 +115,9 @@ function StepperRoot({ children, steps, onComplete, initialStep = 0 }: StepperPr
           {secondaryAction && (
             <Button
               onPress={secondaryAction.onPress}
-              className="w-full rounded-xl h-14 bg-white border-2 border-red-600 mb-3"
+              className="w-full rounded-xl h-14 bg-white dark:bg-dark-surface border-2 border-red-600 dark:border-red-500 mb-3"
             >
-              <ThemedText className="text-red-600 text-base font-montserrat-semibold">
+              <ThemedText className="text-red-600 dark:text-red-500 text-base font-montserrat-semibold">
                 {secondaryAction.label}
               </ThemedText>
             </Button>
@@ -127,9 +127,9 @@ function StepperRoot({ children, steps, onComplete, initialStep = 0 }: StepperPr
             {showBackButton && (
               <Button
                 onPress={goBack}
-                className="flex-1 rounded-xl h-14 bg-gray-100"
+                className="flex-1 rounded-xl h-14 bg-gray-100 dark:bg-gray-800"
               >
-                <ThemedText className="text-gray-700 text-base font-montserrat-semibold">
+                <ThemedText className="text-gray-700 dark:text-gray-300 text-base font-montserrat-semibold">
                   Atrás
                 </ThemedText>
               </Button>
@@ -141,7 +141,7 @@ function StepperRoot({ children, steps, onComplete, initialStep = 0 }: StepperPr
               className={cn(
                 'rounded-xl h-14 flex-row items-center justify-center',
                 showBackButton ? 'flex-1' : 'w-full',
-                nextDisabled ? 'bg-gray-300' : 'bg-red-600'
+                nextDisabled ? 'bg-gray-300 dark:bg-gray-700' : 'bg-red-600'
               )}
             >
               <ThemedText className="text-white text-base font-montserrat-semibold mr-2">

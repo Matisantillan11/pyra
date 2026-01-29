@@ -19,29 +19,29 @@ export default function Card({ title, type }: { title: string, type: 'fire' | 'c
   }
 
   return (
-    <View className="p-4 shadow-lg rounded-lg gap-4">
+    <View className="p-4 shadow-lg dark:shadow-white/10 rounded-lg gap-4 bg-white dark:bg-dark-card">
       {renderIcon()}
 
       <View>
         <ThemedText className="text-xl font-bold">{title}</ThemedText>
 
         <View className="flex-row items-center gap-1">
-          <ThemedText className="text-xs font-medium text-gray-500">Hace 4 min</ThemedText>
-          <View className="h-1 w-1 bg-black/40 rounded-full" />
-          <ThemedText className="text-xs font-bold text-gray-500">KM 12, Av Bustillo</ThemedText>
+          <ThemedText className="text-xs font-medium text-gray-500 dark:text-gray-400">Hace 4 min</ThemedText>
+          <View className="h-1 w-1 bg-black/40 dark:bg-white/40 rounded-full" />
+          <ThemedText className="text-xs font-bold text-gray-500 dark:text-gray-400">KM 12, Av Bustillo</ThemedText>
         </View>
       </View>
 
-      <ThemedText className="text-sm font-medium text-gray-500">
+      <ThemedText className="text-sm font-medium text-gray-500 dark:text-gray-400">
         Clima de humo negro densa visible desde la ruta, lado sur. Parece estar cerca de las viviendas.
       </ThemedText>
 
       <View className="flex-row items-center gap-1">
-        <Button className="bg-green-700/80 w-1/2">
+        <Button className="bg-green-700/80 dark:bg-green-600 w-1/2">
           <ThemedText className="text-sm font-medium text-white">Confirmar</ThemedText>
         </Button>
 
-        <Button className="bg-red-700/80 w-1/2">
+        <Button className="bg-red-700/80 dark:bg-red-600 w-1/2">
           <ThemedText className="text-sm font-medium text-white">No lo veo</ThemedText>
         </Button>
       </View>

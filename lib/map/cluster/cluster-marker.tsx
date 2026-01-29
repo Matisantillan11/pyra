@@ -30,8 +30,8 @@ export default function ClusterMarker({ cluster, onPress }: ClusterMarkerProps) 
       tracksViewChanges={false}
       onPress={onPress}
     >
-      <View className={cn(sizes.outer, 'rounded-full bg-red-500/20 items-center justify-center')}>
-        <View className={cn(sizes.inner, 'rounded-full bg-red-500 items-center justify-center shadow-lg')}>
+      <View className={cn(sizes.outer, 'rounded-full bg-red-500/20 dark:bg-red-800/40 items-center justify-center')}>
+        <View className={cn(sizes.inner, 'rounded-full bg-red-500 dark:bg-red-700 items-center justify-center shadow-lg')}>
           <Text className={cn(sizes.text, 'font-bold text-white -mt-1')}>
             {point_count}
           </Text>

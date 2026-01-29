@@ -12,7 +12,7 @@ export default function Feed() {
   };
 
   return (
-    <SafeAreaView edges={['top', 'bottom']} className='flex-1'>
+    <SafeAreaView edges={['top', 'bottom']} className='flex-1 bg-white dark:bg-dark-bg'>
       <ScrollView className="p-8">
         <View className="gap-4 pb-20">
           <EmergencyCard />

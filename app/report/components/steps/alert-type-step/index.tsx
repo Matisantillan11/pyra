@@ -16,7 +16,7 @@ export function AlertTypeStep({ selectedType, onSelect }: AlertTypeStepProps) {
       label: 'Fuego',
       description: 'Llamas visibles o incendio activo',
       icon: FireIcon,
-      bgColor: 'bg-red-50',
+      bgColor: 'bg-red-50 dark:bg-red-900/30',
       iconColor: '#DC2626',
     },
     {
@@ -24,7 +24,7 @@ export function AlertTypeStep({ selectedType, onSelect }: AlertTypeStepProps) {
       label: 'Humo',
       description: 'Columna de humo, olor fuerte',
       icon: CloudIcon,
-      bgColor: 'bg-gray-100',
+      bgColor: 'bg-gray-100 dark:bg-gray-800',
       iconColor: '#6B7280',
     },
     {
@@ -32,11 +32,11 @@ export function AlertTypeStep({ selectedType, onSelect }: AlertTypeStepProps) {
       label: 'Riesgo',
       description: 'Fogata mal apagada, vidrios, etc.',
       icon: () => (
-        <View className="w-12 h-12 bg-yellow-500 rounded-full items-center justify-center">
+        <View className="w-12 h-12 bg-yellow-500 dark:bg-yellow-600/30 rounded-full items-center justify-center">
           <ThemedText className="text-white text-2xl font-bold">!</ThemedText>
         </View>
       ),
-      bgColor: 'bg-yellow-50',
+      bgColor: 'bg-yellow-50 dark:bg-yellow-900/30',
       iconColor: '#EAB308',
     },
   ];
@@ -44,10 +44,10 @@ export function AlertTypeStep({ selectedType, onSelect }: AlertTypeStepProps) {
   return (
     <View className="px-6 h-full">
       <View className="py-4">
-        <ThemedText className="text-4xl font-montserrat-bold text-gray-900">
-          ¿Qué <ThemedText className="text-red-600 font-bold text-4xl">viste?</ThemedText>
+        <ThemedText className="text-4xl font-montserrat-bold text-gray-900 dark:text-white">
+          ¿Qué <ThemedText className="text-red-600 dark:text-red-500 font-bold text-4xl">viste?</ThemedText>
         </ThemedText>
-        <ThemedText className="text-base text-gray-600 mt-2 font-montserrat-regular">
+        <ThemedText className="text-base text-gray-600 dark:text-gray-400 mt-2 font-montserrat-regular">
           Ayuda a los equipos de emergencia identificando la amenaza.
         </ThemedText>
       </View>
@@ -66,7 +66,7 @@ export function AlertTypeStep({ selectedType, onSelect }: AlertTypeStepProps) {
               className={cn(
                 'p-4 rounded-2xl border-2 flex-row items-center',
                 option.bgColor,
-                isSelected ? 'border-red-600' : 'border-transparent'
+                isSelected ? 'border-red-600 dark:border-red-500' : 'border-transparent'
               )}
             >
               <View className="mr-4">
@@ -79,10 +79,10 @@ export function AlertTypeStep({ selectedType, onSelect }: AlertTypeStepProps) {
                 )}
               </View>
               <View className="flex-1">
-                <ThemedText className="text-lg font-montserrat-semibold text-gray-900">
+                <ThemedText className="text-lg font-montserrat-semibold text-gray-900 dark:text-white">
                   {option.label}
                 </ThemedText>
-                <ThemedText className="text-sm text-gray-600 font-montserrat-regular">
+                <ThemedText className="text-sm text-gray-600 dark:text-gray-400 font-montserrat-regular">
                   {option.description}
                 </ThemedText>
               </View>

@@ -23,27 +23,27 @@ export function ConfirmationStep({ reportData }: ConfirmationStepProps) {
 
   return (
     <View className="h-full px-6 py-6">
-      <ThemedText className="text-2xl font-montserrat-bold text-gray-900 mb-2">
+      <ThemedText className="text-2xl font-montserrat-bold text-gray-900 dark:text-white mb-2">
         Resumen del reporte
       </ThemedText>
-      <ThemedText className="text-sm text-gray-600 font-montserrat-regular mb-2">
+      <ThemedText className="text-sm text-gray-600 dark:text-gray-400 font-montserrat-regular mb-2">
         Verifica la información antes de alertar a los servicios.
       </ThemedText>
 
       <ScrollView showsVerticalScrollIndicator={false} className="h-[calc(100%-600px)] mb-40">
-        <View className="gap-2">
+        <View className="gap-4">
           {/* Alert Type */}
-          <View className="bg-white border border-gray-200 rounded-2xl p-4 shadow-lg">
+          <View className="bg-white dark:bg-dark-card border border-gray-200 dark:border-gray-700 rounded-2xl p-4 shadow-lg dark:shadow-white/10">
             <View className="flex-row items-center justify-between mb-3">
               <View className="flex-row items-center">
-                <View className="w-10 h-10 bg-red-50 rounded-full items-center justify-center mr-3">
+                <View className="w-10 h-10 bg-red-50 dark:bg-red-900/30 rounded-full items-center justify-center mr-3">
                   <FireIcon size={20} color="#DC2626" strokeWidth={2} />
                 </View>
                 <View>
-                  <ThemedText className="text-xs text-gray-500 font-montserrat-medium uppercase">
+                  <ThemedText className="text-xs text-gray-500 dark:text-gray-400 font-montserrat-medium uppercase">
                     Tipo de Incidente
                   </ThemedText>
-                  <ThemedText className="text-base font-montserrat-bold text-gray-900">
+                  <ThemedText className="text-base font-montserrat-bold text-gray-900 dark:text-white">
                     {getAlertTypeLabel()}
                   </ThemedText>
                 </View>
@@ -54,20 +54,20 @@ export function ConfirmationStep({ reportData }: ConfirmationStepProps) {
             </View>
           </View>
 
-          <View className="bg-white border border-gray-200 rounded-2xl p-4 shadow-lg">
+          <View className="bg-white dark:bg-dark-card border border-gray-200 dark:border-gray-700 rounded-2xl p-4 shadow-lg dark:shadow-md dark:shadow-white/10">
             <View className="flex-row items-center justify-between mb-3">
               <View className="flex-row items-center flex-1">
-                <View className="w-10 h-10 bg-red-50 rounded-full items-center justify-center mr-3">
+                <View className="w-10 h-10 bg-red-50 dark:bg-red-900/30 rounded-full items-center justify-center mr-3">
                   <LocationIcon size={20} color="#DC2626" strokeWidth={2} />
                 </View>
                 <View className="flex-1">
-                  <ThemedText className="text-xs text-gray-500 font-montserrat-medium uppercase">
+                  <ThemedText className="text-xs text-gray-500 dark:text-gray-400 font-montserrat-medium uppercase">
                     Ubicación
                   </ThemedText>
-                  <ThemedText className="text-base font-montserrat-bold text-gray-900">
+                  <ThemedText className="text-base font-montserrat-bold text-gray-900 dark:text-white">
                     {reportData.location?.address || 'Cerro Otto, Ladera Sur'}
                   </ThemedText>
-                  <ThemedText className="text-xs text-gray-500 font-montserrat-regular">
+                  <ThemedText className="text-xs text-gray-500 dark:text-gray-400 font-montserrat-regular">
                     Cercano a Refugio, Km 5.2
                   </ThemedText>
                 </View>
@@ -79,19 +79,19 @@ export function ConfirmationStep({ reportData }: ConfirmationStepProps) {
           </View>
 
           {reportData.evidence && (
-            <View className="bg-white border border-gray-200 rounded-2xl p-4 shadow-lg">
+            <View className="bg-white dark:bg-dark-card border border-gray-200 dark:border-gray-700 rounded-2xl p-4 shadow-lg">
               <View className="flex-row items-center justify-between mb-3">
-                <ThemedText className="text-xs text-gray-500 font-montserrat-medium uppercase">
+                <ThemedText className="text-xs text-gray-500 dark:text-gray-400 font-montserrat-medium uppercase">
                   Evidencia Visual
                 </ThemedText>
                 <TouchableOpacity activeOpacity={0.7}>
-                  <ThemedText className="text-sm text-red-600 font-montserrat-semibold">
+                  <ThemedText className="text-sm text-red-600 dark:text-red-500 font-montserrat-semibold">
                     Eliminar
                   </ThemedText>
                 </TouchableOpacity>
               </View>
-              <View className="bg-gray-100 rounded-xl h-48 items-center justify-center overflow-hidden">
-                <ThemedText className="text-gray-500 font-montserrat-medium">
+              <View className="bg-gray-100 dark:bg-gray-800 rounded-xl h-48 items-center justify-center overflow-hidden">
+                <ThemedText className="text-gray-500 dark:text-gray-400 font-montserrat-medium">
                   Vista previa de foto
                 </ThemedText>
                 <ThemedText className="text-xs text-gray-400 font-montserrat-regular mt-1">
@@ -102,11 +102,11 @@ export function ConfirmationStep({ reportData }: ConfirmationStepProps) {
           )}
 
           {reportData.notes && (
-            <View className="bg-white border border-gray-200 rounded-2xl p-4">
-              <ThemedText className="text-xs text-gray-500 font-montserrat-medium uppercase mb-2">
+            <View className="bg-white dark:bg-dark-card border border-gray-200 dark:border-gray-700 rounded-2xl p-4">
+              <ThemedText className="text-xs text-gray-500 dark:text-gray-400 font-montserrat-medium uppercase mb-2">
                 Notas adicionales (Opcional)
               </ThemedText>
-              <ThemedText className="text-sm text-gray-700 font-montserrat-regular">
+              <ThemedText className="text-sm text-gray-700 dark:text-gray-300 font-montserrat-regular">
                 {reportData.notes}
               </ThemedText>
             </View>
@@ -114,7 +114,7 @@ export function ConfirmationStep({ reportData }: ConfirmationStepProps) {
         </View>
 
         <View className="mt-3">
-          <ThemedText className="text-xs text-gray-500 font-montserrat-regular text-center">
+          <ThemedText className="text-xs text-gray-500 dark:text-gray-400 font-montserrat-regular text-center">
             Al presionar "Enviar", usted confirma bajo declaración jurada que la información es verdadera y corresponde a una emergencia real.
           </ThemedText>
         </View>

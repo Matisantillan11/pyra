@@ -19,7 +19,7 @@ export function ReportStepper({ steps, currentStep, onNavigateToStep }: ReportSt
               <View
                 className={cn(
                   'h-1 flex-1 rounded-full',
-                  index <= currentStep ? 'bg-red-600' : 'bg-gray-300'
+                  index <= currentStep ? 'bg-red-600' : 'bg-gray-300 dark:bg-gray-600'
                 )}
               />
             </View>

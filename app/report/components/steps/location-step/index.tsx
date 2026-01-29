@@ -31,24 +31,24 @@ export function LocationStep({ location, onLocationSelect }: LocationStepProps) 
           onChangeText={setSearchQuery}
           placeholder="Buscar calle, zona o referencia..."
           placeholderTextColor="#9CA3AF"
-          className="flex-1 text-gray-900 font-montserrat-regular text-sm bg-white rounded-xl"
+          className="flex-1 text-gray-900 dark:text-white font-montserrat-regular text-sm bg-white dark:bg-gray-800 rounded-xl"
         />
       </View>
 
       <View className="absolute bottom-60 left-0 right-0 px-6 pb-6 gap-4">
-        <View className="bg-white rounded-xl p-4 shadow-lg">
+        <View className="bg-white dark:bg-dark-card rounded-xl p-4 shadow-lg">
           <View className="flex-row items-center">
             <View className="w-10 h-10 bg-red-600 rounded-full items-center justify-center mr-3">
               <LocationIcon size={20} color="white" strokeWidth={2} />
             </View>
             <View className="flex-1">
-              <ThemedText className="text-xs text-gray-500 font-montserrat-medium uppercase">
+              <ThemedText className="text-xs text-gray-500 dark:text-gray-400 font-montserrat-medium uppercase">
                 Ubicación Aproximada
               </ThemedText>
-              <ThemedText className="text-sm font-montserrat-semibold text-gray-900 mt-1">
+              <ThemedText className="text-sm font-montserrat-semibold text-gray-900 dark:text-white mt-1">
                 {searchQuery || 'Av. Exequiel Bustillo Km 12.5'}
               </ThemedText>
-              <ThemedText className="text-xs text-gray-500 font-montserrat-regular">
+              <ThemedText className="text-xs text-gray-500 dark:text-gray-400 font-montserrat-regular">
                 San Carlos de Bariloche, Río Negro
               </ThemedText>
             </View>

@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/images/splash-icon-light.png",
     "scheme": "pyra",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true

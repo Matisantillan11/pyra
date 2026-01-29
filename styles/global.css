@@ -11,6 +11,11 @@
   --color-white: #ffffff;
   --color-black: #000000;
 
+  /* Dark mode background colors */
+  --color-dark-bg: #1e1e1ecc;
+  --color-dark-surface: #494949;
+  --color-dark-card: #1f1f1f;
+
   --font-montserrat-regular: 'Montserrat-Regular';
   --font-montserrat-bold: 'Montserrat-Bold';
   --font-montserrat-medium: 'Montserrat-Medium';
@@ -20,4 +25,3 @@
   --font-montserrat-black: 'Montserrat-Black';
   --font-montserrat-extrabold: 'Montserrat-ExtraBold';
 }
-

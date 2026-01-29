@@ -6,7 +6,7 @@ export default function RealTimeFeed() {
   return (
     <View>
       <View className="flex-row items-center gap-2 my-2">
-        <ThemedText className="text-sm font-bold uppercase text-gray-500">Reportes de la comunidad</ThemedText>
+        <ThemedText className="text-sm font-bold uppercase text-gray-500 dark:text-gray-400">Reportes de la comunidad</ThemedText>
       </View>
 
       <View className="gap-4">
