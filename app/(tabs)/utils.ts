@@ -8,9 +8,9 @@ export function getMarkerType(intensity: number): MarkerType {
 }
 
 export function getActiveFiresLength(fires: FirePoint[]): number {
-  return fires.filter((fire) => fire.intensity <= 35).length;
+  return fires.length > 0 ? fires.filter((fire) => fire.intensity <= 35).length : 0;
 }
 
 export function getFireRiskLength(fires: FirePoint[]): number {
-  return fires.filter((fire) => fire.intensity > 35).length;
+  return fires.length > 0 ? fires.filter((fire) => fire.intensity > 35).length : 0;
 }

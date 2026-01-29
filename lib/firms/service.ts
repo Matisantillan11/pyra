@@ -35,6 +35,5 @@ export async function fetchFires(): Promise<FirePoint[]> {
     withAuthentication: false,
   });
 
-  console.log({ csvData });
   return parseFiresCSV(csvData);
 }
