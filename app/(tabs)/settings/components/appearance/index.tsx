@@ -19,8 +19,8 @@ export default function Appearance() {
       <Button variant="ghost" className="py-2 w-full justify-start shadow-lg dark:shadow-white/10 rounded-lg">
         <View className="w-full flex-row items-center justify-between">
           <View className="flex-row items-center gap-2">
-            <View className="h-12 w-12 bg-orange-200/60 dark:bg-purple-800/30 flex-row items-center justify-center gap-1 rounded-full">
-              {isDark ? <MoonIcon color="purple" strokeWidth={2} /> : <SunIcon color="orange" strokeWidth={2} />}
+            <View className="h-12 w-12 bg-orange-200/60 dark:bg-purple-800 flex-row items-center justify-center gap-1 rounded-full">
+              {isDark ? <MoonIcon color="white" strokeWidth={2} /> : <SunIcon color="orange" strokeWidth={2} />}
             </View>
 
             <View>

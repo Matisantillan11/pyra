@@ -54,7 +54,7 @@ export default function ReportSuccess() {
           {safetyTips.map((tip, index) => (
             <View
               key={index}
-              className="flex-row items-start bg-gray-50 dark:bg-dark-card py-4 px-2 rounded-2xl shadow-lg dark:shadow-md dark:shadow-white/10"
+              className="flex-row items-start bg-gray-50 dark:bg-dark-surface py-4 px-2 rounded-2xl shadow-lg dark:shadow-none"
             >
               <View className="w-10 h-10 bg-white dark:bg-gray-700 rounded-full items-center justify-center mr-3 shadow-sm">
                 <ThemedText className="text-xl">{tip.icon}</ThemedText>
@@ -74,10 +74,11 @@ export default function ReportSuccess() {
 
       <View className="absolute bottom-3 left-0 right-0 px-6 pb-6 gap-3">
         <Button
+          variant="outline"
           onPress={handleBackToMap}
-          className="w-full rounded-xl h-14 bg-red-600"
+          className="w-full rounded-xl h-14 border-2 border-red-600 active:bg-red-600/20"
         >
-          <ThemedText className="text-white text-base font-montserrat-semibold">
+          <ThemedText className="text-red-600  text-base font-montserrat-semibold">
             Volver al Mapa
           </ThemedText>
         </Button>

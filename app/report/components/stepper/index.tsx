@@ -30,7 +30,6 @@ interface StepProps {
   children: ReactNode;
   nextLabel?: string;
   nextDisabled?: boolean;
-  showBackButton?: boolean;
   secondaryAction?: {
     label: string;
     onPress: () => void;
@@ -81,7 +80,6 @@ function StepperRoot({ children, steps, onComplete, initialStep = 0 }: StepperPr
   const {
     nextLabel = 'Siguiente',
     nextDisabled = false,
-    showBackButton = currentStep > 0,
     secondaryAction,
   } = currentChild?.props || {};
 
@@ -110,7 +108,6 @@ function StepperRoot({ children, steps, onComplete, initialStep = 0 }: StepperPr
 
         {currentChild}
 
-        {/* Fixed bottom buttons */}
         <View className="absolute bottom-20 left-0 right-0 px-6 pb-6 pt-4">
           {secondaryAction && (
             <Button
@@ -124,24 +121,12 @@ function StepperRoot({ children, steps, onComplete, initialStep = 0 }: StepperPr
           )}
 
           <View className="gap-3 ">
-            {showBackButton && (
-              <Button
-                onPress={goBack}
-                className="flex-1 rounded-xl h-14 bg-gray-100 dark:bg-gray-800"
-              >
-                <ThemedText className="text-gray-700 dark:text-gray-300 text-base font-montserrat-semibold">
-                  Atrás
-                </ThemedText>
-              </Button>
-            )}
-
             <Button
               onPress={goNext}
               disabled={nextDisabled}
               className={cn(
-                'rounded-xl h-14 flex-row items-center justify-center',
-                showBackButton ? 'flex-1' : 'w-full',
-                nextDisabled ? 'bg-gray-300 dark:bg-gray-700' : 'bg-red-600'
+                'rounded-xl h-14 flex-row items-center justify-center w-full',
+                nextDisabled ? 'bg-gray-300 dark:bg-gray-600/50 dark:opacity-50' : 'bg-red-600'
               )}
             >
               <ThemedText className="text-white text-base font-montserrat-semibold mr-2">

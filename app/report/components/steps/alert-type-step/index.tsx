@@ -1,46 +1,50 @@
 import { View } from 'react-native';
-import { CloudIcon, FireIcon } from '~/components/icons';
+import CardCloudIcon from '~/app/(tabs)/feed/components/card/card-cloud-icon';
+import CardDangerIcon from '~/app/(tabs)/feed/components/card/card-danger-icon';
+import CardFireIcon from '~/app/(tabs)/feed/components/card/card-fire-icon';
 import { Button, ThemedText } from '~/components/ui';
 import { cn } from '~/utils/tailwind';
 import { AlertType } from '../../../types';
+import { getTypeIndicator } from './utils';
 
 interface AlertTypeStepProps {
   selectedType: AlertType | null;
   onSelect: (type: AlertType) => void;
 }
 
-export function AlertTypeStep({ selectedType, onSelect }: AlertTypeStepProps) {
-  const alertOptions = [
+const alertOptions = [
     {
       type: 'fire' as AlertType,
       label: 'Fuego',
       description: 'Llamas visibles o incendio activo',
-      icon: FireIcon,
-      bgColor: 'bg-red-50 dark:bg-red-900/30',
-      iconColor: '#DC2626',
+    icon: () => (
+      <View className='w-12 h-12 rounded-xl items-center justify-center bg-red-50 dark:bg-red-500/10'>
+        <CardFireIcon />
+      </View>
+    ),
+    bgColor: 'bg-red-50 dark:bg-dark-surface',
     },
     {
       type: 'smoke' as AlertType,
       label: 'Humo',
       description: 'Columna de humo, olor fuerte',
-      icon: CloudIcon,
-      bgColor: 'bg-gray-100 dark:bg-gray-800',
-      iconColor: '#6B7280',
+      icon: () => (
+        <CardCloudIcon />
+      ),
+      bgColor: 'bg-gray-100 dark:bg-dark-surface',
     },
     {
       type: 'risk' as AlertType,
       label: 'Riesgo',
       description: 'Fogata mal apagada, vidrios, etc.',
       icon: () => (
-        <View className="w-12 h-12 bg-yellow-500 dark:bg-yellow-600/30 rounded-full items-center justify-center">
-          <ThemedText className="text-white text-2xl font-bold">!</ThemedText>
-        </View>
+        <CardDangerIcon />
       ),
-      bgColor: 'bg-yellow-50 dark:bg-yellow-900/30',
-      iconColor: '#EAB308',
+      bgColor: 'bg-yellow-50 dark:bg-dark-surface',
     },
   ];
 
+export function AlertTypeStep({ selectedType, onSelect }: AlertTypeStepProps) {
   return (
     <View className="px-6 h-full">
       <View className="py-4">
@@ -55,6 +59,7 @@ export function AlertTypeStep({ selectedType, onSelect }: AlertTypeStepProps) {
       <View className="gap-4">
         {alertOptions.map((option) => {
           const Icon = option.icon;
+          const { isFireType, isRiskType, isSmokeType } = getTypeIndicator(option.type);
           const isSelected = selectedType === option.type;
 
           return (
@@ -64,19 +69,15 @@ export function AlertTypeStep({ selectedType, onSelect }: AlertTypeStepProps) {
               onPress={() => onSelect(option.type)}
               activeOpacity={0.7}
               className={cn(
-                'p-4 rounded-2xl border-2 flex-row items-center',
+                'px-4 py-8 rounded-2xl border-2 flex-row items-center dark:shadow-none border-transparent',
                 option.bgColor,
-                isSelected ? 'border-red-600 dark:border-red-500' : 'border-transparent'
+                isSelected && isFireType ? 'border-red-600 dark:border-red-500' : null,
+                isSelected && isRiskType ? 'border-yellow-600 dark:border-yellow-500' : null,
+                isSelected && isSmokeType ? 'border-gray-600 dark:border-gray-500' : null
               )}
             >
               <View className="mr-4">
-                {option.type === 'risk' ? (
-                  <Icon />
-                ) : (
-                  <View className={cn('w-12 h-12 rounded-full items-center justify-center', option.bgColor)}>
-                    <Icon size={28} color={option.iconColor} strokeWidth={2} />
-                  </View>
-                )}
+                <Icon />
               </View>
               <View className="flex-1">
                 <ThemedText className="text-lg font-montserrat-semibold text-gray-900 dark:text-white">

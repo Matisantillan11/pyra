@@ -11,7 +11,7 @@ export function ConfirmationStep({ reportData }: ConfirmationStepProps) {
   const getAlertTypeLabel = () => {
     switch (reportData.alertType) {
       case 'fire':
-        return 'Incendio Forestal';
+        return 'Incendio';
       case 'smoke':
         return 'Humo';
       case 'risk':
@@ -33,10 +33,10 @@ export function ConfirmationStep({ reportData }: ConfirmationStepProps) {
       <ScrollView showsVerticalScrollIndicator={false} className="h-[calc(100%-600px)] mb-40">
         <View className="gap-4">
           {/* Alert Type */}
-          <View className="bg-white dark:bg-dark-card border border-gray-200 dark:border-gray-700 rounded-2xl p-4 shadow-lg dark:shadow-white/10">
+          <View className="bg-white dark:bg-dark-surface border border-gray-300 dark:border-gray-700 rounded-2xl p-4 shadow-lg dark:shadow-none">
             <View className="flex-row items-center justify-between mb-3">
               <View className="flex-row items-center">
-                <View className="w-10 h-10 bg-red-50 dark:bg-red-900/30 rounded-full items-center justify-center mr-3">
+                <View className="w-12 h-12 bg-red-50 dark:bg-red-900/30 rounded-xl items-center justify-center mr-3">
                   <FireIcon size={20} color="#DC2626" strokeWidth={2} />
                 </View>
                 <View>
@@ -54,10 +54,10 @@ export function ConfirmationStep({ reportData }: ConfirmationStepProps) {
             </View>
           </View>
 
-          <View className="bg-white dark:bg-dark-card border border-gray-200 dark:border-gray-700 rounded-2xl p-4 shadow-lg dark:shadow-md dark:shadow-white/10">
+          <View className="bg-white dark:bg-dark-surface border border-gray-300 dark:border-gray-700 rounded-2xl p-4 shadow-lg dark:shadow-none">
             <View className="flex-row items-center justify-between mb-3">
               <View className="flex-row items-center flex-1">
-                <View className="w-10 h-10 bg-red-50 dark:bg-red-900/30 rounded-full items-center justify-center mr-3">
+                <View className="w-12 h-12 bg-red-50 dark:bg-red-900/30 rounded-xl items-center justify-center mr-3">
                   <LocationIcon size={20} color="#DC2626" strokeWidth={2} />
                 </View>
                 <View className="flex-1">
@@ -79,7 +79,7 @@ export function ConfirmationStep({ reportData }: ConfirmationStepProps) {
           </View>
 
           {reportData.evidence && (
-            <View className="bg-white dark:bg-dark-card border border-gray-200 dark:border-gray-700 rounded-2xl p-4 shadow-lg">
+            <View className="bg-white dark:bg-dark-surface border border-gray-300 dark:border-gray-700 rounded-2xl p-4 shadow-lg dark:shadow-none">
               <View className="flex-row items-center justify-between mb-3">
                 <ThemedText className="text-xs text-gray-500 dark:text-gray-400 font-montserrat-medium uppercase">
                   Evidencia Visual
@@ -102,7 +102,7 @@ export function ConfirmationStep({ reportData }: ConfirmationStepProps) {
           )}
 
           {reportData.notes && (
-            <View className="bg-white dark:bg-dark-card border border-gray-200 dark:border-gray-700 rounded-2xl p-4">
+            <View className="bg-white dark:bg-dark-surface border border-gray-300 dark:border-gray-700 rounded-2xl p-4 shadow-lg dark:shadow-none">
               <ThemedText className="text-xs text-gray-500 dark:text-gray-400 font-montserrat-medium uppercase mb-2">
                 Notas adicionales (Opcional)
               </ThemedText>
@@ -113,7 +113,7 @@ export function ConfirmationStep({ reportData }: ConfirmationStepProps) {
           )}
         </View>
 
-        <View className="mt-3">
+        <View className="my-3">
           <ThemedText className="text-xs text-gray-500 dark:text-gray-400 font-montserrat-regular text-center">
             Al presionar "Enviar", usted confirma bajo declaración jurada que la información es verdadera y corresponde a una emergencia real.
           </ThemedText>

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { AlertTypeStep, ConfirmationStep, EvidenceStep, LocationStep, Stepper } from './components';
 import ReportSuccess from './components/success';
+import { steps } from './constants';
 import { ReportData } from './types';
 
 
@@ -13,7 +14,6 @@ export default function Report() {
     notes: '',
   });
 
-  const steps = ['TIPO', 'UBICACIÓN', 'EVIDENCIA', 'DETALLES'];
 
   const handleSubmit = () => {
     console.log('Submitting report:', reportData);
@@ -25,28 +25,25 @@ export default function Report() {
   };
 
 
-  if (isSuccess) {
-    return <ReportSuccess />;
-  }
-
-  return (
+  return isSuccess ? (
+    <ReportSuccess />
+  ) : (
     <Stepper steps={steps} onComplete={handleSubmit}>
-      <Stepper.Step nextDisabled={!reportData.alertType} showBackButton={false}>
+        <Stepper.Step nextDisabled={!reportData.alertType}>
         <AlertTypeStep
           selectedType={reportData.alertType}
           onSelect={(type) => updateReportData({ alertType: type })}
         />
       </Stepper.Step>
 
-      <Stepper.Step showBackButton>
+        <Stepper.Step>
         <LocationStep
           location={reportData.location}
           onLocationSelect={(location) => updateReportData({ location })}
         />
       </Stepper.Step>
 
-      <Stepper.Step
-        showBackButton={false}
+        <Stepper.Step
         secondaryAction={{ label: 'Saltar', onPress: () => { } }}
       >
         <EvidenceStep
@@ -57,7 +54,7 @@ export default function Report() {
         />
       </Stepper.Step>
 
-      <Stepper.Step showBackButton={false}>
+        <Stepper.Step>
         <ConfirmationStep reportData={reportData} />
       </Stepper.Step>
     </Stepper>

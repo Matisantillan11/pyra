@@ -15,8 +15,8 @@ export default function Settings() {
   }
 
   return (
-    <SafeAreaView edges={['top', 'bottom']} className='flex-1 bg-white dark:bg-dark-bg'>
-      <ScrollView className="p-8">
+    <SafeAreaView edges={['top', 'bottom']} className='flex-1'>
+      <ScrollView className="p-8 h-full">
         <View className='flex-row items-center justify-between gap-2 mb-6'>
           <Button variant="ghost" className="h-10 w-10 rounded-full shadow-none" onPress={handleGoBack}>
             <ArrowLeftIcon color={isDark ? "white" : "gray"} />

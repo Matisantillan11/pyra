@@ -19,7 +19,7 @@ export default function Card({ title, type }: { title: string, type: 'fire' | 'c
   }
 
   return (
-    <View className="p-4 shadow-lg dark:shadow-white/10 rounded-lg gap-4 bg-white dark:bg-dark-card">
+    <View className="p-4 shadow-lg dark:shadow-white/10 rounded-lg gap-4 bg-white dark:bg-dark-surface">
       {renderIcon()}
 
       <View>

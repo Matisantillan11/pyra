@@ -1,7 +1,7 @@
-import { ScrollView, TextInput, TouchableOpacity, View } from 'react-native';
+import { ScrollView, TouchableOpacity, View } from 'react-native';
 
 import { CameraIcon } from '~/components/icons';
-import { ThemedText } from '~/components/ui';
+import { Input, ThemedText } from '~/components/ui';
 import { Evidence } from '../../../types';
 
 interface EvidenceStepProps {
@@ -32,7 +32,7 @@ export function EvidenceStep({
       <ScrollView className='h-[calc(100% - 500px)] mb-40' showsVerticalScrollIndicator={false}>
         <View className="flex-1 px-6 py-6">
           <View className="items-center">
-            <View className="w-12 h-12 bg-red-600 rounded-full items-center justify-center mb-4">
+            <View className="w-12 h-12 bg-red-600 shadow-2xl shadow-red-600 rounded-full items-center justify-center mb-4">
               <CameraIcon size={24} color="white" strokeWidth={2} />
             </View>
             <ThemedText className="text-xl font-montserrat-bold text-gray-900 dark:text-white text-center">
@@ -47,7 +47,6 @@ export function EvidenceStep({
             Sube una foto clara. Ayuda a los equipos de emergencia y el tamaño de la zona de vegetación afectada.
           </ThemedText>
 
-          {/* Camera Button */}
           <TouchableOpacity
             onPress={handleCameraPress}
             activeOpacity={0.7}
@@ -75,33 +74,16 @@ export function EvidenceStep({
             )}
           </TouchableOpacity>
 
-          {/* Privacy Notice */}
-          <View className="mt-6 bg-blue-50 dark:bg-blue-900/30 p-4 rounded-xl flex-row items-start">
-            <ThemedText className="text-blue-600 dark:text-blue-400 mr-2">ℹ️</ThemedText>
-            <View className="flex-1">
-              <ThemedText className="text-xs font-montserrat-semibold text-blue-900 dark:text-blue-300">
-                Privacidad y Datos
-              </ThemedText>
-              <ThemedText className="text-xs text-blue-700 dark:text-blue-400 font-montserrat-regular mt-1">
-                Las imágenes se comprimen automáticamente para ahorrar datos móviles. Solo serán visibles para el personal de emergencia.
-              </ThemedText>
-            </View>
-          </View>
-
-          {/* Notes Input */}
           <View className="mt-6">
-            <ThemedText className="text-sm font-montserrat-semibold text-gray-700 dark:text-gray-300 mb-2">
-              Notas adicionales (Opcional)
-            </ThemedText>
-            <TextInput
+            <Input
               value={notes}
               onChangeText={onNotesChange}
               placeholder="Describe accesos, cercanía a viviendas o detalles relevantes..."
               placeholderTextColor="#9CA3AF"
               multiline
-              numberOfLines={4}
-              className="border border-gray-300 dark:border-gray-600 rounded-xl p-4 text-gray-900 dark:text-white bg-white dark:bg-dark-bg font-montserrat-regular text-sm"
-              style={{ textAlignVertical: 'top' }}
+              label='Notas adicionales (Opcional)'
+              maxLength={140}
+              className="text-sm min-h-36"
             />
           </View>
         </View>

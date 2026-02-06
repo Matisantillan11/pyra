@@ -8,7 +8,7 @@ export const buttonVariants = cva('rounded-lg items-center justify-center font-m
       outline:
         'bg-transparent border border-blue-500 hover:bg-blue-500 active:bg-blue-500 disabled:bg-gray-300 disabled:border-gray-300 disabled:hover:cursor-not-allowed disabled:active:cursor-not-allowed',
       ghost:
-        'bg-white/80 border-none hover:bg-white/90 active:bg-white/90 disabled:bg-white/80 disabled:hover:cursor-not-allowed disabled:active:cursor-not-allowed shadow-lg dark:shadow-white/10 dark:bg-dark-card',
+        'bg-white/80 border-none hover:bg-white/90 active:bg-white/90 disabled:bg-white/80 disabled:hover:cursor-not-allowed disabled:active:cursor-not-allowed shadow-lg dark:shadow-none dark:bg-dark-surface',
     },
     size: {
       default: 'px-2 min-h-10',
