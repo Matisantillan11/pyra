@@ -1,9 +1,11 @@
+import { BottomSheetModal } from '@gorhom/bottom-sheet';
 import { router } from 'expo-router';
-import { useRef } from 'react';
+import { useCallback, useRef } from 'react';
 import { ActivityIndicator, View } from 'react-native';
 import type MapView from 'react-native-maps';
 import { ReportButton } from '~/components';
 import { FireIcon } from '~/components/icons';
+import { PersonalDataBottomSheet } from '~/components/personal-data-bottom-sheet';
 import { ThemedText } from '~/components/ui';
 import { useFires } from '~/lib/firms/hooks';
 import { ClusteredMap, MapMarker } from '~/lib/map';
@@ -19,6 +21,21 @@ export default function MapScreen() {
   const handleReportPress = () => {
     router.push('/report');
   };
+
+  const bottomSheetModalRef = useRef<BottomSheetModal>(null);
+
+  // callbacks
+  const handlePresentModalPress = useCallback(() => {
+    bottomSheetModalRef?.current?.present();
+  }, []);
+
+  const handleCloseModalPress = useCallback(() => {
+    bottomSheetModalRef?.current?.dismiss();
+  }, []);
+
+  const handleSheetChanges = useCallback((index: number) => {
+    console.log('handleSheetChanges', index);
+  }, []);
 
   return (
     <View className="h-full items-center justify-center relative">
@@ -58,7 +75,13 @@ export default function MapScreen() {
         </View>
       )}
 
-      <ReportButton onPress={handleReportPress} />
+      <ReportButton onPress={handlePresentModalPress} />
+
+      <PersonalDataBottomSheet
+        ref={bottomSheetModalRef}
+        onClose={handleCloseModalPress}
+        handleSheetChanges={handleSheetChanges}
+      />
     </View>
   );
 }

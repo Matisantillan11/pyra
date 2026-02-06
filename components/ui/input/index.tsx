@@ -3,7 +3,7 @@ import { cn } from '~/utils/tailwind'
 import { InputProps } from './types'
 export default function Input({ label, errorText, isError, className, isRequired, ...props }: InputProps) {
   return (
-    <View>
+    <View className='w-fit'>
       {label ? <View className={cn("flex-row items-center", isRequired ? 'gap-1' : '')}>
         <Text className={cn("text-sm text-gray-500 dark:text-gray-400 mb-1 font-medium", isError ? "text-red-500" : '')}>
           {label}

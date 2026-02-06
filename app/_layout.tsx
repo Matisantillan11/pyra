@@ -12,9 +12,11 @@ import {
   Montserrat_800ExtraBold,
   useFonts
 } from '@expo-google-fonts/montserrat';
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { DarkTheme, DefaultTheme } from '@react-navigation/native';
 import { Stack } from 'expo-router';
 import { useEffect } from 'react';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { ThemeProvider, useTheme } from '~/lib/theme';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -60,8 +62,12 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider>
-      <RootLayoutContent />
-    </ThemeProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <ThemeProvider>
+        <BottomSheetModalProvider>
+          <RootLayoutContent />
+        </BottomSheetModalProvider>
+      </ThemeProvider>
+    </GestureHandlerRootView>
   );
 }
