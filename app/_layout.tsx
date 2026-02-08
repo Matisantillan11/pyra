@@ -32,10 +32,12 @@ function RootLayoutContent() {
           backgroundColor: isDark
             ? DarkTheme.colors.background
             : DefaultTheme.colors.background
-        }
+        },
+        headerShown: false
       }}>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="report" options={{ headerShown: false }} />
+        <Stack.Screen name="onboarding" />
+        <Stack.Screen name="(tabs)" />
+        <Stack.Screen name="report" />
       </Stack>
       <StatusBar style={isDark ? 'light' : 'dark'} />
     </>
